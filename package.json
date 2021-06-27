@@ -6,10 +6,15 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "node-sass": "^6.0.0",
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-svg": "^14.0.2",
+    "sass": "^1.34.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -19,10 +24,14 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"{,!(node_modules)/**/}*.js\""
+    "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
+    "flow": "flow"
   },
   "eslintConfig": {
-    "extends": "@inc4/react"
+    "extends": "@inc4/react",
+    "rules": {
+      "react/prop-types": 0
+    }
   },
   "prettier": "@inc4/prettier-config",
   "browserslist": {
@@ -47,6 +56,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "flow-bin": "^0.152.0",
     "prettier": "^2.3.1"
   }
 }

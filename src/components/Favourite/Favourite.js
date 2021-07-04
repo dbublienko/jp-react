@@ -7,7 +7,6 @@ import PostItem from '../PostItem';
 const Favourite = observer(() => {
   const { likedPosts } = store;
   const likedPostsObj = toJS(likedPosts);
-  console.log(likedPostsObj);
 
   if (likedPostsObj.length === 0) {
     return <div className="warning-message">No posts yet</div>;

@@ -1,7 +1,12 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Layout = ({ children }) => (
+type Props = {
+  children?: React.Node,
+};
+
+const Layout = (props: Props): React.Node => (
   <div className="layout">
     <header className="header">
       <div className="header__wrapper">
@@ -47,7 +52,7 @@ const Layout = ({ children }) => (
       </div>
     </aside>
     <main className="content">
-      <div className="content__wrapper">{children}</div>
+      <div className="content__wrapper">{props.children}</div>
     </main>
   </div>
 );

@@ -1,10 +1,22 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { Switch, Route } from 'react-router';
 
-const RenderRoutes = ({ routes }) => (
+type Props = {
+  routes: Array<Object>,
+};
+
+type RouteType = {
+  path: string,
+  exact?: boolean,
+  key: string,
+  component: React.Node,
+};
+
+const RenderRoutes = (props: Props): React.Node => (
   <>
     <Switch>
-      {routes.map((route) => (
+      {props.routes.map((route: RouteType) => (
         <Route
           path={route.path}
           exact={route.exact}

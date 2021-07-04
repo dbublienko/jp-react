@@ -1,5 +1,7 @@
 import React from 'react';
 import AllPosts from './components/AllPosts';
+import CreatePost from './components/CreatePost';
+import MyPosts from './components/MyPosts';
 
 const routes = [
   {
@@ -12,13 +14,13 @@ const routes = [
     path: '/my-posts',
     exact: true,
     key: 'MY-POSTS',
-    component: () => <span>My Posts</span>,
+    component: () => <MyPosts />,
   },
   {
     path: '/create-post',
     exact: true,
     key: 'CREATE',
-    component: () => <span>Create Post</span>,
+    component: () => <CreatePost />,
   },
   {
     path: '/favourite',

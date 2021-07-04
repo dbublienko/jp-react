@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import heartIcon from '../../assets/images/heart.svg';
 
-const PostItem = ({ post }) => {
+type Props = {
+  post: {
+    userId: string,
+    id: number,
+    title: string,
+    body: string,
+  },
+};
+
+const PostItem = (props: Props) => {
+  const { post } = props;
   const [liked, setLiked] = useState(false);
   return (
     <div className="post">
@@ -13,7 +23,7 @@ const PostItem = ({ post }) => {
         </div>
         <div className="post-body">
           <span className="post-title">{post.title}</span>
-          <span className="post-text">Post #{post.body}</span>
+          <span className="post-text">{post.body}</span>
         </div>
         <div className="post-btn">
           <ReactSVG

@@ -1,0 +1,13 @@
+.btn {
+  &__create-post {
+    padding: 10px;
+    max-width: 250px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: $purpleFont;
+    color: $white;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+}

@@ -26,7 +26,12 @@ const CreatePost = observer(() => {
   };
 
   if (loading) return <Loader />;
-  if (fetchError) return <div className="warning-message">Error during creating posts, try later</div>;
+  if (fetchError)
+    return (
+      <div className="warning-message">
+        Error during creating posts, try later
+      </div>
+    );
 
   return (
     <div className="create-post-wrapper">
@@ -64,7 +69,14 @@ const CreatePost = observer(() => {
           type="submit"
         />
       </form>
-      {!!myPostsObj.length && <div className="create-post-goto">You can look at your posts in tab <Link to='/my-posts' className="create-post-link">My Posts</Link></div>}
+      {!!myPostsObj.length && (
+        <div className="create-post-goto">
+          You can look your posts in tab{' '}
+          <Link to="/my-posts" className="create-post-link">
+            My Posts
+          </Link>
+        </div>
+      )}
     </div>
   );
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import AllPosts from './components/AllPosts';
 import CreatePost from './components/CreatePost';
 import MyPosts from './components/MyPosts';
+import Favourite from './components/Favourite/Favourite';
 
 const routes = [
   {
@@ -26,7 +27,7 @@ const routes = [
     path: '/favourite',
     exact: true,
     key: 'FAVOURITE',
-    component: () => <span>Favourite</span>,
+    component: () => <Favourite />,
   },
 ];
 

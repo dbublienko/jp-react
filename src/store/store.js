@@ -6,6 +6,9 @@ class PostsStore {
 
   myPosts: Array<Object> = JSON.parse(localStorage.getItem('myPosts')) || [];
 
+  likedPosts: Array<Object> =
+    JSON.parse(localStorage.getItem('likedPosts')) || [];
+
   loading: boolean = false;
 
   fetchError: boolean = false;
@@ -17,6 +20,8 @@ class PostsStore {
       fetchError: observable,
       fetchPosts: action.bound,
       createPost: action.bound,
+      likePost: action.bound,
+      unlikePost: action.bound,
     });
   }
 
@@ -59,6 +64,22 @@ class PostsStore {
         clearTimeout(timer);
       }, 1500);
     }
+  }
+
+  likePost(post) {
+    const existingId = this.likedPosts.findIndex((item) => item.id === post.id);
+    if (existingId === -1) {
+      this.likedPosts.push(post);
+      localStorage.setItem('likedPosts', JSON.stringify(this.likedPosts));
+    }
+  }
+
+  unlikePost(post) {
+    const targetId = this.likedPosts.findIndex((item) => item.id === post.id);
+    if (targetId !== -1) {
+      this.likedPosts.splice(targetId, 1);
+    }
+    localStorage.setItem('likedPosts', JSON.stringify(this.likedPosts));
   }
 }
 

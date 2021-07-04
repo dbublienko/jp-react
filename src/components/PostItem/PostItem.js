@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import heartIcon from '../../assets/images/heart.svg';
+import { store } from '../../store/store';
 
 type Props = {
   post: {
@@ -9,11 +10,13 @@ type Props = {
     title: string,
     body: string,
   },
+  liked?: ?boolean,
 };
 
 const PostItem = (props: Props) => {
-  const { post } = props;
-  const [liked, setLiked] = useState(false);
+  const { post, liked } = props;
+  const { likePost, unlikePost } = store;
+  const [isLiked, setIsLiked] = useState(liked);
   return (
     <div className="post">
       <div className="post-wrapper">
@@ -28,8 +31,15 @@ const PostItem = (props: Props) => {
         <div className="post-btn">
           <ReactSVG
             src={heartIcon}
-            className={liked ? 'post-icon post-icon-active' : 'post-icon'}
-            onClick={() => setLiked(!liked)}
+            className={isLiked ? 'post-icon post-icon-active' : 'post-icon'}
+            onClick={() => {
+              setIsLiked(!isLiked);
+              if (isLiked) {
+                unlikePost(post);
+              } else {
+                likePost(post);
+              }
+            }}
           />
         </div>
       </div>

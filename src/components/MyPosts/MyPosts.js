@@ -8,7 +8,6 @@ import PostItem from '../PostItem';
 const MyPosts = observer(() => {
   const { myPosts } = store;
   const myPostsObj = toJS(myPosts);
-  console.log(myPostsObj);
 
   if (myPostsObj.length === 0) {
     return <div className="warning-message">No posts yet</div>;
